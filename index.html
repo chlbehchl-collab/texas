@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carter &amp; Reyes Law Group | Houston Personal Injury Lawyers (Demo)</title>
+<meta name="description" content="Demo site for Carter &amp; Reyes Law Group, a fictional Houston, Texas personal injury firm. Free consultation. No fee unless we win.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== EDIT HERE: brand variables ===== */
+:root{
+  --firm:"Carter & Reyes Law Group"; /* firm name: also edit in the HTML */
+  --bg:#FAF8F5; --teal:#0F766E; --teal-dark:#0B5C56; --coral:#F4845F; --coral-dark:#E56F49;
+  --mint:#E6F4F1; --text:#1F2937; --muted:#556070; --white:#fff;
+  --radius:18px; --shadow:0 8px 28px rgba(15,118,110,.10);
+  --head:"Fraunces","Playfair Display",Georgia,serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(84px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.65 var(--body)}
+h1,h2,h3{font-family:var(--head);color:var(--teal-dark);line-height:1.15;margin:0 0 .6em}
+h1{font-size:clamp(2.1rem,6vw,3.5rem)} h2{font-size:clamp(1.7rem,4vw,2.4rem)} h3{font-size:1.2rem}
+p{margin:0 0 1em} a{color:inherit}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:72px 0}
+.alt{background:var(--mint)}
+.lead{color:var(--muted);max-width:60ch}
+.center{text-align:center}.center .lead{margin-inline:auto}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+/* buttons */
+.btn{display:inline-block;padding:.85em 1.5em;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font:600 1rem var(--body);transition:background .2s,transform .2s}
+.btn-coral{background:var(--coral);color:#3a1708}.btn-coral:hover{background:var(--coral-dark);transform:translateY(-1px)}
+.btn-line{border-color:var(--teal);color:var(--teal);background:transparent}.btn-line:hover{background:var(--teal);color:#fff}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(250,248,245,.94);backdrop-filter:blur(8px);box-shadow:0 2px 14px rgba(0,0,0,.05)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.logo{font:700 1.2rem var(--head);color:var(--teal-dark);text-decoration:none}
+.logo small{display:block;font:500 .7rem var(--body);color:var(--muted);letter-spacing:.02em}
+nav{display:none;gap:24px}nav a{text-decoration:none;font-weight:500}nav a:hover{color:var(--teal)}
+.hdr-cta{display:flex;align-items:center;gap:14px}
+.phone{display:none;font-weight:600;color:var(--teal);text-decoration:none}
+.hdr-cta .btn{padding:.6em 1.1em;font-size:.9rem}
+@media(min-width:900px){nav{display:flex}.phone{display:inline}}
+/* hero */
+.hero{padding:48px 0 72px}
+.hero .wrap{display:grid;gap:40px;align-items:center}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:1.4em}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.05fr 1fr}}
+/* image placeholders (remote photos are blocked on hosted pages; swap in <img> tags, see comments) */
+.photo{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(160deg,#FFF3E6,var(--mint));aspect-ratio:4/3}
+.photo svg,.photo img{width:100%;height:100%;object-fit:cover;display:block}
+/* trust */
+.trust{padding:28px 0}
+.trust ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:center;font-weight:600;color:var(--teal-dark)}
+@media(min-width:800px){.trust ul{grid-template-columns:repeat(4,1fr)}}
+/* cards */
+.grid{display:grid;gap:22px;margin-top:36px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--white);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.card p{color:var(--muted);margin:0}
+.icon{width:48px;height:48px;border-radius:14px;background:var(--mint);display:grid;place-items:center;margin-bottom:16px}
+.icon svg{width:26px;height:26px;stroke:var(--teal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* about */
+.two{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.two{grid-template-columns:1fr 1fr}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.stat{background:var(--white);border-radius:14px;padding:16px;text-align:center;box-shadow:var(--shadow)}
+.stat b{display:block;font:700 1.7rem var(--head);color:var(--teal)}
+.stat span{font-size:.85rem;color:var(--muted)}
+/* steps */
+.step .num{width:52px;height:52px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font:700 1.3rem var(--head);margin-bottom:16px}
+/* reviews */
+.tag{display:inline-block;background:var(--mint);color:var(--teal-dark);font-size:.8rem;font-weight:600;border-radius:999px;padding:.2em .8em;margin-bottom:12px}
+/* faq */
+.faq{max-width:760px;margin:36px auto 0}
+details{background:var(--white);border-radius:14px;box-shadow:var(--shadow);margin-bottom:12px;padding:0 22px}
+summary{cursor:pointer;font-weight:600;padding:18px 0;list-style:none;display:flex;justify-content:space-between;gap:16px;color:var(--teal-dark)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--coral-dark);font-size:1.4rem;line-height:1;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding-bottom:18px;margin:0}
+/* contact */
+.panel{background:var(--mint);border-radius:24px;padding:28px}
+@media(min-width:900px){.panel{padding:44px}}
+form{display:grid;gap:16px}
+label{font-weight:600;font-size:.9rem;display:block;margin-bottom:6px}
+input,select,textarea{width:100%;padding:.8em 1em;border:1.5px solid #cfdad7;border-radius:12px;font:inherit;background:#fff;color:var(--text)}
+input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#C2410C}
+.err{color:#B91C1C;font-size:.85rem;min-height:1.1em;margin-top:4px}
+.info p{margin-bottom:1.2em}.info strong{display:block;color:var(--teal-dark)}
+.thanks{display:none;background:#fff;border-radius:var(--radius);padding:32px;text-align:center}
+.thanks.show{display:block}
+/* footer */
+footer{background:#DCEEEA;padding:48px 0 110px;color:var(--teal-dark)}
+footer ul{list-style:none;padding:0;margin:0 0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+footer a{text-decoration:none}footer a:hover{text-decoration:underline}
+footer small{display:block;color:var(--muted)}
+/* mobile sticky bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(250,248,245,.96);box-shadow:0 -4px 16px rgba(0,0,0,.08)}
+.mbar .btn{flex:1;text-align:center;padding:.75em .5em}
+@media(min-width:900px){.mbar{display:none}footer{padding-bottom:48px}}
+/* motion */
+.fade{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}
+.fade.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fade{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">Carter &amp; Reyes<small>Law Group · Houston, TX</small></a>
+    <nav aria-label="Main">
+      <a href="#practice">Practice Areas</a><a href="#about">About</a><a href="#results">Results</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <a class="phone" href="tel:+17135550100">(713) 555-0100</a>
+      <a class="btn btn-coral" href="#contact">Free Consultation</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="fade">
+      <h1>Clear Answers. Real Advocacy. Right When You Need It.</h1>
+      <p class="lead">After an injury, you deserve a team that listens, explains your options in plain language, and handles the legal work while you focus on healing.</p>
+      <div class="btns">
+        <a class="btn btn-coral" href="#contact">Free Consultation</a>
+        <a class="btn btn-line" href="tel:+17135550100">Call Now</a>
+      </div>
+    </div>
+    <!-- To use a real photo, replace the <svg> below with:
+         <img src="YOUR-URL" alt="Attorney meeting with a client in a sunlit office" loading="eager"> -->
+    <div class="photo fade" data-img="hero" role="img" aria-label="Illustration: attorney meeting with a client in a sunlit office. Placeholder for a photo.">
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="300" fill="#FFF3E6"/>
+        <rect x="40" y="30" width="150" height="130" rx="10" fill="#E6F4F1"/>
+        <circle cx="150" cy="75" r="22" fill="#FBD38D"/>
+        <path d="M40 160h150" stroke="#fff" stroke-width="4"/><path d="M115 30v130" stroke="#fff" stroke-width="4"/>
+        <rect x="30" y="215" width="340" height="14" rx="7" fill="#C9B79C"/>
+        <circle cx="130" cy="150" r="24" fill="#F2C7A5"/><path d="M92 215c0-34 76-34 76 0z" fill="#0F766E"/>
+        <circle cx="270" cy="150" r="24" fill="#E0B08A"/><path d="M232 215c0-34 76-34 76 0z" fill="#F4845F"/>
+        <rect x="190" y="200" width="40" height="15" rx="3" fill="#fff"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="alt trust" aria-label="Why choose us">
+  <div class="wrap"><ul><li>Free Consultation</li><li>No Fee Unless We Win</li><li>Se Habla Español</li><li>24/7 Support</li></ul></div>
+</section>
+
+<!-- PRACTICE AREAS -->
+<section id="practice">
+  <div class="wrap">
+    <div class="center fade"><h2>Practice Areas</h2><p class="lead">We help people across Houston and Harris County recover after serious injuries.</p></div>
+    <div class="grid">
+      <article class="card fade"><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 15v-3l2-5h14l2 5v3M3 15h18M3 15v3h3v-3M18 15v3h3v-3"/><circle cx="7.5" cy="12" r=".6"/><circle cx="16.5" cy="12" r=".6"/></svg></div><h3>Car Accidents</h3><p>Guidance on medical bills, insurance claims, and lost income after a collision.</p></article>
+      <article class="card fade"><div class="icon"><svg viewBox="0 0 24 24"><path d="M2 7h12v9H2zM14 10h4l3 3v3h-7M5 16v2M17 16v2"/><circle cx="6" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg></div><h3>Truck Accidents</h3><p>Help taking on commercial carriers and their insurers after a serious crash.</p></article>
+      <article class="card fade"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 18h16M6 18v-4a6 6 0 0112 0v4M12 5V3M5 8L3.5 6.5M19 8l1.5-1.5"/></svg></div><h3>Workplace Injuries</h3><p>Support understanding your rights when you are hurt on the job.</p></article>
+      <article class="card fade"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.6-7 10-7 10z"/></svg></div><h3>Wrongful Death</h3><p>Compassionate representation for families who have lost a loved one.</p></article>
+      <article class="card fade"><div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 8l-3 5 4 2 1 6M9 13l-4 1M13 15l5-2"/></svg></div><h3>Slip and Fall</h3><p>Answers when unsafe property conditions lead to a painful injury.</p></article>
+      <article class="card fade"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></div><h3>Medical Malpractice</h3><p>Careful review of care that fell short of accepted medical standards.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt">
+  <div class="wrap two">
+    <!-- Replace with: <img src="YOUR-URL" alt="Attorney team meeting in a bright conference room" loading="lazy"> -->
+    <div class="photo fade" data-img="team" role="img" aria-label="Illustration: professional team around a conference table. Placeholder for a photo.">
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="300" fill="#F6FBFA"/>
+        <ellipse cx="200" cy="215" rx="165" ry="38" fill="#C9B79C"/>
+        <g><circle cx="100" cy="120" r="22" fill="#F2C7A5"/><path d="M68 190c0-36 64-36 64 0z" fill="#0F766E"/>
+        <circle cx="200" cy="105" r="22" fill="#E0B08A"/><path d="M168 175c0-36 64-36 64 0z" fill="#F4845F"/>
+        <circle cx="300" cy="120" r="22" fill="#D9A47E"/><path d="M268 190c0-36 64-36 64 0z" fill="#5FB3A8"/></g>
+      </svg>
+    </div>
+    <div class="fade">
+      <h2>A firm built on listening first</h2>
+      <p>Carter &amp; Reyes Law Group is a fictional firm created for this demo. Replace this paragraph with your own story: how the firm started, who it serves, and what clients can expect when they call.</p>
+      <p>Our approach is simple: explain every step clearly, return calls promptly, and treat every client like a neighbor.</p>
+      <div class="stats">
+        <div class="stat"><b>XX+</b><span>Years of experience</span></div>
+        <div class="stat"><b>X,XXX</b><span>Clients helped</span></div>
+        <div class="stat"><b>XX</b><span>Team members</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="wrap">
+    <div class="center fade"><h2>How It Works</h2><p class="lead">Three clear steps from your first call to resolution.</p></div>
+    <div class="grid">
+      <div class="card step fade"><div class="num">1</div><h3>Free Consultation</h3><p>Tell us what happened. We listen, answer your questions, and explain your options at no cost.</p></div>
+      <div class="card step fade"><div class="num">2</div><h3>We Build Your Case</h3><p>We gather records, speak with witnesses, and handle communication with insurance companies.</p></div>
+      <div class="card step fade"><div class="num">3</div><h3>We Fight for You</h3><p>We negotiate firmly and, when needed, prepare to take your case to court.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="results" class="alt">
+  <div class="wrap">
+    <div class="center fade"><h2>What Clients Say</h2><p class="lead">Placeholder reviews for demonstration only.</p></div>
+    <div class="grid">
+      <figure class="card fade" style="margin:0"><span class="tag">Sample review</span><blockquote style="margin:0"><p>Placeholder text: describe how the team communicated and made a stressful time easier.</p></blockquote><figcaption><strong>Client Name</strong>, Houston</figcaption></figure>
+      <figure class="card fade" style="margin:0"><span class="tag">Sample review</span><blockquote style="margin:0"><p>Placeholder text: share what stood out about the experience, in the client's own words.</p></blockquote><figcaption><strong>Client Name</strong>, Katy</figcaption></figure>
+      <figure class="card fade" style="margin:0"><span class="tag">Sample review</span><blockquote style="margin:0"><p>Placeholder text: mention responsiveness, clarity, or support through the process.</p></blockquote><figcaption><strong>Client Name</strong>, Sugar Land</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="center fade"><h2>Frequently Asked Questions</h2></div>
+    <div class="faq fade">
+      <details><summary>How much does a consultation cost?</summary><p>Placeholder answer: your first consultation is free and comes with no obligation.</p></details>
+      <details><summary>How do fees work?</summary><p>Placeholder answer: explain the contingency-fee arrangement and any costs the client may owe. Have a licensed attorney review this wording.</p></details>
+      <details><summary>How long do I have to file a claim?</summary><p>Placeholder answer: deadlines vary by case type. Confirm current Texas deadlines with a licensed attorney before publishing.</p></details>
+      <details><summary>What should I bring to my consultation?</summary><p>Placeholder answer: list helpful items such as accident reports, photos, medical records, and insurance information.</p></details>
+      <details><summary>Do you speak Spanish?</summary><p>Se habla español. Placeholder answer: describe how Spanish-speaking clients can reach the team.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt">
+  <div class="wrap">
+    <div class="center fade"><h2>Get Your Free Consultation</h2><p class="lead">Tell us a little about your situation and we'll follow up.</p></div>
+    <div class="panel fade" style="margin-top:36px">
+      <div class="two" style="align-items:start">
+        <div>
+          <form id="form" novalidate>
+            <div><label for="name">Full name</label><input id="name" name="name" autocomplete="name" required><div class="err" aria-live="polite"></div></div>
+            <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required><div class="err" aria-live="polite"></div></div>
+            <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><div class="err" aria-live="polite"></div></div>
+            <div><label for="type">Case type</label>
+              <select id="type" name="type" required><option value="">Choose one</option><option>Car Accident</option><option>Truck Accident</option><option>Workplace Injury</option><option>Wrongful Death</option><option>Slip and Fall</option><option>Medical Malpractice</option><option>Other</option></select><div class="err" aria-live="polite"></div></div>
+            <div><label for="msg">Message</label><textarea id="msg" name="msg" rows="4" required></textarea><div class="err" aria-live="polite"></div></div>
+            <button class="btn btn-coral" type="submit">Request my free consultation</button>
+          </form>
+          <div class="thanks" id="thanks" role="status" tabindex="-1"><h3>Thank you!</h3><p>This is a demo, so nothing was sent. On a real site, the team would reply soon.</p></div>
+        </div>
+        <div class="info">
+          <p><strong>Address</strong>123 Placeholder Street, Suite 100<br>Houston, TX 77002</p>
+          <p><strong>Phone</strong><a href="tel:+17135550100">(713) 555-0100</a></p>
+          <p><strong>Hours</strong>Office: Mon–Fri, 8:30 am – 5:30 pm<br>Phone support: 24/7</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="logo" style="font-size:1.3rem">Carter &amp; Reyes Law Group</p>
+    <ul aria-label="Practice areas">
+      <li><a href="#practice">Car Accidents</a></li><li><a href="#practice">Truck Accidents</a></li><li><a href="#practice">Workplace Injuries</a></li>
+      <li><a href="#practice">Wrongful Death</a></li><li><a href="#practice">Slip and Fall</a></li><li><a href="#practice">Medical Malpractice</a></li>
+    </ul>
+    <small>Attorney Advertising. Demo design only. Not a real law firm.</small>
+    <small>&copy; <span id="yr">2026</span> Carter &amp; Reyes Law Group (fictional). All rights reserved.</small>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn btn-line" href="tel:+17135550100">Call Now</a><a class="btn btn-coral" href="#contact">Free Consultation</a></div>
+
+<script>
+/* ===== ADD YOUR IMAGES HERE: paste a photo URL between the quotes ===== */
+const IMAGES={hero:"https://www.istockphoto.com/photos/law",team:"https://university.help.edu.my/field-of-study/law/"};
+const ALT={hero:"Attorney meeting with a client in a sunlit office",team:"Attorney team meeting in a bright conference room"};
+document.querySelectorAll('[data-img]').forEach(box=>{
+  const k=box.dataset.img,url=IMAGES[k];if(!url)return;
+  const svg=box.querySelector('svg'),img=new Image();
+  img.src=url;img.alt=ALT[k];img.loading=k==='hero'?'eager':'lazy';
+  img.onload=()=>{svg.replaceWith(img);box.removeAttribute('role');box.removeAttribute('aria-label')};
+});
+document.getElementById('yr').textContent=new Date().getFullYear();
+// fade-in
+const els=document.querySelectorAll('.fade');
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  els.forEach(e=>io.observe(e));
+}else els.forEach(e=>e.classList.add('in'));
+// form validation (demo only)
+const form=document.getElementById('form');
+const msgs={name:'Enter your full name.',phone:'Enter a phone number with at least 10 digits.',email:'Enter a valid email address.',type:'Choose a case type.',msg:'Tell us briefly what happened.'};
+function check(f){
+  const v=f.value.trim();let ok=!!v;
+  if(f.name==='phone')ok=v.replace(/\D/g,'').length>=10;
+  if(f.name==='email')ok=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
+  f.setAttribute('aria-invalid',ok?'false':'true');
+  f.parentElement.querySelector('.err').textContent=ok?'':msgs[f.name];
+  return ok;
+}
+form.querySelectorAll('input,select,textarea').forEach(f=>f.addEventListener('blur',()=>check(f)));
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const bad=[...form.elements].filter(f=>f.name&&!check(f));
+  if(bad.length){bad[0].focus();return}
+  form.style.display='none';
+  const t=document.getElementById('thanks');t.classList.add('show');t.focus();
+});
+</script>
+</body>
+</html>
